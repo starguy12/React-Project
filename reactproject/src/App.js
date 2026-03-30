@@ -46,3 +46,5 @@ function App() {
 }
 
 export default App;
+// we can also create a footer file (Footer.jsx) and place it under components, the same way we did with NAV (Nav.jsx).
+// import Footer from "./components/Footer";
