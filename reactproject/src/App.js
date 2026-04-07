@@ -1,42 +1,66 @@
+import React, { useState } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  const handleSearch = async () => {
+    const response = await fetch(
+      `https://www.omdbapi.com/?apikey=b2cff54a${searchTerm}`,
+    );
+    const apiEndpoint = "https://www.omdbapi.com/?apikey=b2cff54a";
+
+    const data = await response.json();
+    setMovies(data.Search || []); // Adjust based on your API response structure
+  };
+
   return (
     <>
       <Nav />
       <h1> Filter and API project Module4</h1>
-      <input type="search" id="search" placeholder="Search for a movie..." />
+      <input
+        type="search"
+        id="search"
+        placeholder="Search for a movie..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
       <div id="search-input"></div>{" "}
       {/*  <!-- this element is used to insert the HTML into the DOM--> */}
-      <label for="sort">Sort by:</label>
+      <label htmlFor="sort">Sort by:</label>
       <select id="sort">
         <option value="title">Title</option>
         <option value="year">Year</option>
       </select>
-      <div class="container"></div>
-      <div class="card">
-        <div class="Title">Title</div>
-        <div class="Year">Year</div>
-        <div class="ImdbID">ImdbID</div>
-        <div class="Type">Type</div>
-        <div class="Poster">Poster</div>
+      <div className="container">
+        {movies.map((movie) => (
+          <div className="card" key={movie.imdbID}>
+            <div className="Title">movie.Title</div>
+            <div className="Year">movie.Year</div>
+            <div className="ImdbID">movie.ImdbID</div>
+            <div className="Type">movie.Type</div>
+            <img className="Poster" src={movie.Poster} alt={movie.Title} />
+          </div>
+        ))}
       </div>
       <footer>
-        <div class="container">
-          <div class="row row__column">
-            <div class="footer__list"></div>
+        <div className="container">
+          <div className="row row__column">
+            <div className="footer__list"></div>
             <a href="#" class="footer__link">
               Home
             </a>
-            <a href="#" class="footer__link">
+            <a href="#" className="footer__link">
               Find your movie
             </a>
             <a href="#" class="footer__link">
               Contact
             </a>
           </div>
-          <div class="footer__copyright">
+          <div className="footer__copyright">
             © 2026 Blinker.com.au. All rights reserved.
           </div>
         </div>
