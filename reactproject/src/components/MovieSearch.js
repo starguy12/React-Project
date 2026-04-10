@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const MovieSearch = () => {
+export default function MovieSearch() {
   const apiEndpoint = "https://www.omdbapi.com/?apikey=b2cff54a";
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("title");
@@ -76,7 +76,7 @@ const MovieSearch = () => {
       </div>
     </div>
   );
-};
+}
 
 /* State Management: We use useState to manage searchQuery, sortBy, movies, and error.
 Fetching Movies: The getMovies function fetches data from the API and handles errors.

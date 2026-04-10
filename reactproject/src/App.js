@@ -8,7 +8,7 @@ function App() {
     <>
       <Nav />
       <h1>Filter and API project Module4</h1>
-      <MovieSearch /> {/* Rendering the MovieSearch component */}
+      <MovieSearch />
       <footer>
         <div className="container">
           <div className="row row__column">
@@ -35,4 +35,4 @@ function App() {
 export default App;
 
 //we can also create a footer file (Footer.jsx) and place it under components, the same way we did with NAV (Nav.jsx).
-// import Footer from "./components/Footer";
+//import Footer from "./components/Footer"; -->
