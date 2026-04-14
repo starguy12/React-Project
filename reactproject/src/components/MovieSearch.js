@@ -16,9 +16,11 @@ export default function MovieSearch() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      setError("");
       return data;
     } catch (err) {
       setError(err.message);
+      return null;
     }
   };
 
