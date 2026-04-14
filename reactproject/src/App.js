@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import MovieSearch from "./components/MovieSearch";
 
 function App() {
   return (
-    <>
+    <Router>
       <Nav />
-      <h1>Filter and API project Module4</h1>
-      <MovieSearch />
+      <Routes>
+        <Route path="/" element={<MovieSearch />} />
+        <Route path="/contact" element={<h1>Contact Us</h1>} />
+      </Routes>
       <footer>
         <div className="container">
           <div className="row row__column">
             <div className="footer__list"></div>
-            <a href="#" className="footer__link">
+            <a href="/" className="footer__link">
               Home
             </a>
-            <a href="#" className="footer__link">
+            <a href="/" className="footer__link">
               Find your movie
             </a>
-            <a href="#" className="footer__link">
+            <a href="/contact" className="footer__link">
               Contact
             </a>
           </div>
@@ -28,7 +31,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </>
+    </Router>
   );
 }
 
