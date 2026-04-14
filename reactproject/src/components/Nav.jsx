@@ -2,16 +2,16 @@
 function Nav() { 
     return (
          <nav>
-        <div class="row nav__row">
-          <div class="nav__title">Movies</div>
-          <div class="nav__links">
-            <a href="#" class="nav__link">
+        <div className="row nav__row">
+          <div className="nav__title">Movies</div>
+          <div className="nav__links">
+            <a href="#" className="nav__link">
               Home
             </a>
-            <a href="#" class="nav__link">
+            <a href="#" className="nav__link">
               About
             </a>
-            <a href="#" class="nav__link">
+            <a href="#" className="nav__link">
               Contact
             </a>
           </div>
